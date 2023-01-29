@@ -1,4 +1,4 @@
-class Soldier():
+class Soldier:
     def __init__(self, name, armor, hp, dmg):
         self.name = name
         self.armor = armor
@@ -12,37 +12,41 @@ class Soldier():
         print("Damage:", self.dmg)
 
 
-soldiers = [Soldier('Lukas', 20, 100, 10),
-            Soldier('Bartek', 20, 100, 10)
-            ]
+soldiers = [
+    Soldier('Lukas', 20, 100, 10),
+    Soldier('Bartek', 20, 100, 10)
+]
+
 soldier_found = False
-while soldier_found == False:
+while not soldier_found:
     for soldier in soldiers:
         if isinstance(soldier, Soldier):
             soldier.display_attributes()
-            print('---')
-    soldier_name = input('Who is your Soldier?')
+            print("---")
+
+    soldier_name = input("Who is your soldier? ")
+
     for soldier in soldiers:
         if soldier_name == soldier.name:
-            print('Your soldier is', soldier.name)
+            print("Your soldier is", soldier.name)
             soldier_found = True
             break
 
     if not soldier_found:
-        print(soldier_name, 'is not a valid soldier name')
+        print(soldier_name, "is not a valid soldier name")
 
 while soldier.hp > 0:
-    print('1. Leczenie 10\n2. Obrażenia 10')  # 1
-    action = int(input("wybierz akcje: "))  # 2
+    print("1. Healing 10\n2. Damage 10")
+    action = int(input("Choose an action: "))
 
     if action == 1:
         soldier.hp += 10
     elif action == 2:
         soldier.hp -= 10
     else:
-        print('Wybrano złą opcje')
+        print("Invalid option selected")
 
     if soldier.hp == 0:
-        print('You are dead man')
+        print("You are a dead man")
     else:
-        print('Aktualne zdrowie: ' + str(soldier.hp))
+        print("Current health:", soldier.hp)
