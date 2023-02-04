@@ -13,8 +13,12 @@ class Soldier:
 
 
 soldiers = [
-    Soldier('Lukas', 20, 100, 10),
-    Soldier('Bartek', 20, 100, 10)
+    Soldier('Bartek', 15, 80, 25),
+    Soldier('Lukas', 30, 150, 10),
+    Soldier('John', 20, 100, 15),
+    Soldier('Mario', 20, 90, 20),
+
+
 ]
 
 soldier_found = False
@@ -36,17 +40,17 @@ while not soldier_found:
         print(soldier_name, "is not a valid soldier name")
 
 while soldier.hp > 0:
-    print("1. Healing 10\n2. Damage 10")
+    print("1. Healing \n2. Damage " + str(soldier.dmg))
     action = int(input("Choose an action: "))
 
     if action == 1:
         soldier.hp += 10
     elif action == 2:
-        soldier.hp -= 10
+        soldier.hp -= soldier.dmg
     else:
         print("Invalid option selected")
 
-    if soldier.hp == 0:
+    if soldier.hp <= 0:
         print("You are a dead man")
     else:
         print("Current health:", soldier.hp)
