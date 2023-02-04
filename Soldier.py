@@ -1,11 +1,13 @@
 class Soldier:
-    def __init__(self, name, armor, hp, dmg):
+    def __init__(self,type , name, armor, hp, dmg):
+        self.type = type
         self.name = name
         self.armor = armor
         self.hp = hp
         self.dmg = dmg
 
     def display_attributes(self):
+        print("Class:", self.type)
         print("Name:", self.name)
         print("Armor:", self.armor)
         print("HP:", self.hp)
@@ -13,10 +15,10 @@ class Soldier:
 
 
 soldiers = [
-    Soldier('Bartek', 15, 80, 25),
-    Soldier('Lukas', 30, 150, 10),
-    Soldier('John', 20, 100, 15),
-    Soldier('Mario', 20, 90, 20),
+    Soldier('Archer', 'Bartek', 15, 80, 25),
+    Soldier('Tank', 'Lukas', 30, 150, 10),
+    Soldier('Healer', 'John', 20, 100, 15),
+    Soldier('Barbarian', 'Mario', 20, 90, 20),
 
 
 ]
