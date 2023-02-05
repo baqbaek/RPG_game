@@ -32,6 +32,8 @@ def display_map():
         print(x, end='  ')
         x += 1
         print(' '.join(i))
+
+
 def move_player(direction):
     row, col = np.where(matrix == 'P')
     row, col = int(row), int(col)
@@ -62,7 +64,14 @@ def move_player(direction):
     else:
         print("Invalid direction")
     while True:
+
         display_map()
+        row, col = np.where(matrix == 'P')
+        row, col = int(row), int(col)
+        if matrix[row - 1][col] == 'E' or matrix[row + 1][col] == 'E' or \
+                matrix[row][col - 1] == 'E' or matrix[row][col + 1] == 'E':
+            print("Enemy found!")
+
         direction = input("Move in which direction? (up, down, left, right) ")
         move_player(direction)
 
@@ -71,3 +80,5 @@ enemy_spawn(int(input('Number of enemies: ')))
 player_spawn()
 display_map()
 move_player(input('Direction: '))
+
+
