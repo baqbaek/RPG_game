@@ -14,7 +14,7 @@ class Soldier:
         print("Damage:", self.dmg)
 
     @staticmethod
-    def choose_soldier(soldiers):
+    def choose_soldier():
         soldier_found = False
         while not soldier_found:
             for soldier in soldiers:
@@ -29,7 +29,6 @@ class Soldier:
                     print("Your soldier is", soldier.name)
                     soldier_found = True
                     return soldier
-                    break
 
             if not soldier_found:
                 print(soldier_name, "is not a valid soldier name")
