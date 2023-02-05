@@ -1,8 +1,8 @@
 import numpy as np
 import random as rand
 
-import main
 import soldier
+from main import selected_soldier
 
 matrix = np.zeros((10, 20), dtype=str)
 matrix[:, :] = '-'
@@ -66,23 +66,20 @@ def move_player(direction):
             print("Can't move in that direction")
     else:
         print("Invalid direction")
-    while True:
 
+    while selected_soldier.hp > 0:
         display_map()
         row, col = np.where(matrix == 'P')
         row, col = int(row), int(col)
         if matrix[row - 1][col] == 'E' or matrix[row + 1][col] == 'E' or \
                 matrix[row][col - 1] == 'E' or matrix[row][col + 1] == 'E':
             print("Enemy found!")
-            main.selected_soldier.actions()
-
+            selected_soldier.actions()
         direction = input("Move in which direction? (up, down, left, right) ")
         move_player(direction)
 
 
-'''
 enemy_spawn(int(input('Number of enemies: ')))
 player_spawn()
 display_map()
 move_player(input('Direction: '))
-'''
