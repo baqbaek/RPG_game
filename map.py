@@ -69,4 +69,5 @@ def move_player(direction):
 
 enemy_spawn(int(input('Number of enemies: ')))
 player_spawn()
+display_map()
 move_player(input('Direction: '))

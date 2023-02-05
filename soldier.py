@@ -1,5 +1,5 @@
 class Soldier:
-    def __init__(self,type , name, armor, hp, dmg):
+    def __init__(self, type, name, armor, hp, dmg):
         self.type = type
         self.name = name
         self.armor = armor
@@ -19,7 +19,6 @@ soldiers = [
     Soldier('Tank', 'Lukas', 30, 150, 10),
     Soldier('Healer', 'John', 20, 100, 15),
     Soldier('Barbarian', 'Mario', 20, 90, 20),
-
 
 ]
 
