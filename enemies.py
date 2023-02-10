@@ -14,7 +14,7 @@ class Enemy:
 
 enemies = [
     # name, armor, hp, dmg
-    Enemy('Dragon', 10, 10, 10),
+    Enemy('Dragon', 10, 100, 10),
     Enemy('Goblin', 10, 10, 10),
     Enemy('Orc', 10, 10, 10),
     Enemy('Snake', 10, 10, 10),
@@ -29,3 +29,5 @@ def show_enemies():
     for i in enemies:
         i.display_attributes()
         print('---')
+
+show_enemies()

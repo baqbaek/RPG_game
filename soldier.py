@@ -1,3 +1,6 @@
+from enemies import *
+
+
 class Soldier:
     def __init__(self, type, name, armor, hp, dmg):
         self.type = type
@@ -35,20 +38,38 @@ class Soldier:
 
     def actions(self):
         while self.hp > 0:
-            print("1. Healing \n2. Damage " + str(self.dmg))
+            print("1. Healing \n2. Attack")
             action = int(input("Choose an action: "))
 
             if action == 1:
                 self.hp += 10
             elif action == 2:
-                self.hp -= self.dmg
+                print("Enemies: ")
+                for i in range(len(enemies)):
+                    print(i + 1, ". ", enemies[i].name)
+
+                enemy_choice = int(input("Enter the number of the enemy: ")) - 1
+                selected_enemy = enemies[enemy_choice]
+                selected_enemy.hp -= self.dmg
+                print(selected_enemy.name, "has been hit and lost", self.dmg, "HP.")
+                if selected_enemy.hp > 0:
+                    self.hp -= selected_enemy.dmg
+                    print("Enemy has attacked back, you lost", selected_enemy.dmg, "HP.")
+                else:
+                    enemies.remove(selected_enemy)
+                    print(selected_enemy.name, "has been defeated.")
             else:
                 print("Invalid option selected")
 
             if self.hp <= 0:
                 print("You are a dead man")
+                break
             else:
                 print("Current health:", self.hp)
+                print("Enemies left: ", len(enemies))
+                if not enemies:
+                    print("You have defeated all enemies!")
+                    break
 
 
 soldiers = [
@@ -57,6 +78,5 @@ soldiers = [
     Soldier('Healer', 'John', 20, 100, 15),
     Soldier('Barbarian', 'Mario', 20, 90, 20),
 ]
-
-
-
+selected_soldier = Soldier.choose_soldier()
+Soldier.actions(selected_soldier)
