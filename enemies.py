@@ -29,5 +29,3 @@ def show_enemies():
     for i in enemies:
         i.display_attributes()
         print('---')
-
-show_enemies()
