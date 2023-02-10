@@ -1,4 +1,6 @@
+import Weapons
 from enemies import *
+from Weapons import *
 
 
 class Soldier:
@@ -37,7 +39,14 @@ class Soldier:
                 print(soldier_name, "is not a valid soldier name")
 
     def actions(self):
+        for i in range(len(weapons)):
+            print(i + 1, ". ", weapons[i].name)
+            Weapons.show_weapons()
+        weapon_choice = int(input('Choose your weapons: ')) -1
+        selected_weapon = weapons[weapon_choice]
         while self.hp > 0:
+
+
             print("1. Healing \n2. Attack")
             action = int(input("Choose an action: "))
 
@@ -50,8 +59,8 @@ class Soldier:
 
                 enemy_choice = int(input("Enter the number of the enemy: ")) - 1
                 selected_enemy = enemies[enemy_choice]
-                selected_enemy.hp -= self.dmg
-                print(selected_enemy.name, "has been hit and lost", self.dmg, "HP.")
+                selected_enemy.hp -= selected_weapon.dmg
+                print(selected_enemy.name, "has been hit and lost", selected_weapon.dmg, "HP.")
                 if selected_enemy.hp > 0:
                     self.hp -= selected_enemy.dmg
                     print("Enemy has attacked back, you lost", selected_enemy.dmg, "HP.")

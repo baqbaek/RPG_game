@@ -5,6 +5,7 @@ class Weapon:
         self.dmg = dmg
 
     def display_weapons(self):
+        print('ID: ', self.id)
         print('Name: ', self.name)
         print('Damage: ', self.dmg)
 
