@@ -42,10 +42,9 @@ class Soldier:
         for i in range(len(weapons)):
             print(i + 1, ". ", weapons[i].name)
             Weapons.show_weapons()
-        weapon_choice = int(input('Choose your weapons: ')) -1
+        weapon_choice = int(input('Choose your weapons: ')) - 1
         selected_weapon = weapons[weapon_choice]
         while self.hp > 0:
-
 
             print("1. Healing \n2. Attack")
             action = int(input("Choose an action: "))
@@ -87,5 +86,6 @@ soldiers = [
     Soldier('Healer', 'John', 20, 100, 15),
     Soldier('Barbarian', 'Mario', 20, 90, 20),
 ]
-selected_soldier = Soldier.choose_soldier()
-Soldier.actions(selected_soldier)
+
+# selected_soldier = Soldier.choose_soldier()
+# Soldier.actions(selected_soldier)

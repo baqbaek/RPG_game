@@ -1,5 +1,6 @@
 import numpy as np
 import random as rand
+from enemies import *
 
 import soldier
 from main import selected_soldier
@@ -14,7 +15,7 @@ def enemy_spawn(lvl):
     for i in range(0, lvl):
         row = rand.randint(1, 8)
         col = rand.randint(1, 18)
-        matrix[row][col] = 'E'
+        matrix[row][col] = enemies[i].short
 
 
 def player_spawn():
@@ -71,8 +72,8 @@ def move_player(direction):
         display_map()
         row, col = np.where(matrix == 'P')
         row, col = int(row), int(col)
-        if matrix[row - 1][col] == 'E' or matrix[row + 1][col] == 'E' or \
-                matrix[row][col - 1] == 'E' or matrix[row][col + 1] == 'E':
+        if matrix[row - 1][col] == enemies.short or matrix[row + 1][col] == enemies.short or matrix[row][
+            col - 1] == enemies.short or matrix[row][col + 1] == enemies.short:
             print("Enemy found!")
             selected_soldier.actions()
         direction = input("Move in which direction? (up, down, left, right) ")
